@@ -3,7 +3,7 @@ function juros(valorInicial, rendimentoMensal, nMeses, investimentoMensal){
     var rendimentoMesM = 0.0
     var juros = 0.0
 
-    for(var i = 0; i < nMeses; i++){
+    for(var i = 0; i <= nMeses; i++){
         rendimentoMesM = totalMesM * rendimentoMensal
         juros += rendimentoMesM
         totalMesM += investimentoMensal + rendimentoMesM
@@ -33,9 +33,9 @@ function valorTotal(valorTotalInvestido, rendimentoTotal, impostoDeRenda){
     return (valorTotalInvestido + rendimentoTotal - impostoDeRenda)
 }
 
-/*var juros = juros(10000.00, 1/100, 10, 1000.00)
+/*var juros = juros(10000.00, 1/100, 12, 1000.00)
 var imposto = imposto(juros, 10*30)
-var total = valorTotal(10000.00 + (10*1000.00), juros, imposto)
+var total = valorTotal(10000.00 + (12*1000.00), juros, imposto)
 
 
 alert("Juros: " + juros)
