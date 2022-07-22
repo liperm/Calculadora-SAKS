@@ -33,6 +33,18 @@ function valorTotal(valorTotalInvestido, rendimentoTotal, impostoDeRenda){
     return (valorTotalInvestido + rendimentoTotal - impostoDeRenda)
 }
 
+function onlynumber(evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode( key );
+    //var regex = /^[0-9.,]+$/;
+    var regex = /^[0-9.]+$/;
+    if( !regex.test(key) ) {
+       theEvent.returnValue = false;
+       if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+ }
+
 /*var juros = juros(10000.00, 1/100, 12, 1000.00)
 var imposto = imposto(juros, 10*30)
 var total = valorTotal(10000.00 + (12*1000.00), juros, imposto)
