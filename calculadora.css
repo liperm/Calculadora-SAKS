@@ -1,1 +1,58 @@
- 
+@charset "UTF-8";
+
+/*
+cordestaque: #5274d8;
+corcomplementar2: #e1e9fc;
+*/
+
+body {
+    background-color: #fdf9f9;
+}
+
+main {
+    margin: auto;
+    margin-top: 15px;
+    max-width: 1920px;
+    max-height: 1080px;
+}
+
+.text {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #132644;
+}
+
+.center {
+    display: block;
+    margin: auto;
+}
+
+.borda {
+    float: left;
+    margin: auto;
+}
+
+.calculadora {
+    margin-left: 20px;
+    float: left;
+    border-radius: 25px;
+    background-color: #c7d4f7;
+    padding: 30px;
+    max-width: 86%;
+}
+
+#titulo {
+    height: auto;
+    max-width: 100%;
+}
+
+#montanhav {
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    height: auto;
+    max-width: 100%;
+    min-width: 50%;
+} 
