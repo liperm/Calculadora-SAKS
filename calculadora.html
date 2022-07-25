@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imgs/saks.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="imgs/favicon-saks.svg" type="image/x-icon">
     <title>SAKS - Calculadora Financeira</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="calculadora.css">
@@ -13,7 +13,7 @@
     <main>
         <div class="borda">
             <picture>
-                <source media="(max-width:950px)" srcset="imgs/mountainh.png" type="image/png">
+                <source media="(max-width:1080px)" srcset="imgs/mountainh.png" type="image/png">
                 <img id="montanhav" src="imgs/mountainv.png" alt="Escalando Montanhas">
             </picture>
         </div>
@@ -25,35 +25,62 @@
                 </div>
             </picture>
         </header>
-        <div class="calculadora">
-            <p class="text">Valor Inicial</p>
-            <div class="input-group input-group-lg mb-3">
-                <span class="input-group-text" id="basic-addon1">R$</span>
-                <input type="text" class="form-control" placeholder="Valor Inicial" aria-label="Valor Inicial" aria-describedby="basic-addon1" onkeypress="return onlynumber()">
+        <form>
+            <div class="calculadora">
+                <div class="input">
+                    <p class="text">Valor Inicial</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon1">R$</span>
+                        <input type="text" class="form-control" placeholder="Valor Inicial" aria-label="Valor Inicial" aria-describedby="basic-addon1" onkeypress="return onlynumber()">
+                    </div>
+                    <p class="text">Valor Mensal</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon2">R$</span>
+                        <input type="text" class="form-control" placeholder="Valor Mensal" aria-label="Valor Mensal" aria-describedby="basic-addon2" onkeypress="return onlynumber()">
+                    </div>
+                    <p class="text">Taxa de Juros Mensal</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon3">%</span>
+                        <input type="text" class="form-control" placeholder="Taxa de Juros" aria-label="Taxa de Juros" aria-describedby="basic-addon3" onkeypress="return onlynumber()">
+                        <span class="input-group-text" id="basic-addon4">Mensal</span>
+                    </div>
+                    <p class="text">Período Desejado</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <span class="input-group-text" id="basic-addon5">Meses</span>
+                    </div>
+                    <div style="float:left">
+                        <button type="reset" class="btn btn-outline-primary btn-lg">Limpar</button>
+                    </div>
+                    <div style="float:right">
+                        <button type="submit" class="btn btn-primary btn-lg" type="submit">CALCULAR</button>
+                    </div>
+                </div>
+                <div class="output">
+                    <p class="text">Valor Inicial</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon1">R$</span>
+                        <input type="text" class="form-control" placeholder="Valor Inicial" aria-label="Valor Inicial" aria-describedby="basic-addon1" onkeypress="return onlynumber()">
+                    </div>
+                    <p class="text">Valor Mensal</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon2">R$</span>
+                        <input type="text" class="form-control" placeholder="Valor Mensal" aria-label="Valor Mensal" aria-describedby="basic-addon2" onkeypress="return onlynumber()">
+                    </div>
+                    <p class="text">Taxa de Juros Mensal</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text" id="basic-addon3">%</span>
+                        <input type="text" class="form-control" placeholder="Taxa de Juros" aria-label="Taxa de Juros" aria-describedby="basic-addon3" onkeypress="return onlynumber()">
+                        <span class="input-group-text" id="basic-addon4">Mensal</span>
+                    </div>
+                    <p class="text">Período Desejado</p>
+                    <div class="input-group input-group-lg mb-3">
+                        <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <span class="input-group-text" id="basic-addon5">Meses</span>
+                    </div>
+                </div>
             </div>
-            <p class="text">Valor Mensal</p>
-            <div class="input-group input-group-lg mb-3">
-                <span class="input-group-text" id="basic-addon2">R$</span>
-                <input type="text" class="form-control" placeholder="Valor Mensal" aria-label="Valor Mensal" aria-describedby="basic-addon2" onkeypress="return onlynumber()">
-            </div>
-            <p class="text">Taxa de Juros Mensal</p>
-            <div class="input-group input-group-lg mb-3">
-                <span class="input-group-text" id="basic-addon3">%</span>
-                <input type="text" class="form-control" placeholder="Taxa de Juros" aria-label="Taxa de Juros" aria-describedby="basic-addon3" onkeypress="return onlynumber()">
-                <span class="input-group-text" id="basic-addon4">Mensal</span>
-            </div>
-            <p class="text">Período Desejado</p>
-            <div class="input-group input-group-lg mb-3">
-                <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                <span class="input-group-text" id="basic-addon5">Meses</span>
-            </div>
-            <div style="float:left">
-                <button type="reset" class="btn btn-outline-primary btn-lg">Limpar</button>
-            </div>
-            <div style="float:right">
-                <button type="submit" class="btn btn-primary btn-lg" type="submit">CALCULAR</button>
-            </div>
-        </div>
+        </form>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
     <script src="calculadora.js"></script>
