@@ -1,9 +1,9 @@
 function juros(valorInicial, rendimentoMensal, nMeses, investimentoMensal){
-    var totalMesM = valorInicial
-    var rendimentoMesM = 0.0
-    var juros = 0.0
+    let totalMesM = valorInicial
+    let rendimentoMesM = 0.0
+    let juros = 0.0
 
-    for(var i = 0; i <= nMeses; i++){
+    for(let i = 0; i <= nMeses; i++){
         rendimentoMesM = totalMesM * rendimentoMensal
         juros += rendimentoMesM
         totalMesM += investimentoMensal + rendimentoMesM
@@ -34,8 +34,8 @@ function valorTotal(valorTotalInvestido, rendimentoTotal, impostoDeRenda){
 }
 
  function formatarMoeda(input) {
-    var elemento = input;
-    var valor = elemento.value;
+    let elemento = input;
+    let valor = elemento.value;
     
 
     valor = valor + '';
@@ -52,12 +52,34 @@ function valorTotal(valorTotalInvestido, rendimentoTotal, impostoDeRenda){
     
 }
 
+function transforma(valor){
+    valor = valor.replace(/\./g, "")
+    valor = valor.replace(/\,/g,".")
+    return valor
+}
 
-/*var juros = juros(10000.00, 1/100, 12, 1000.00)
-var imposto = imposto(juros, 10*30)
-var total = valorTotal(10000.00 + (12*1000.00), juros, imposto)
+function calcular(){
+    let valorInicial = document.getElementById("valorInicial").value
+    valorInicial = transforma(valorInicial)
+    valorInicial = parseFloat(valorInicial) 
 
+    let rendimentoMensal = document.getElementById("rendimento").value
+    rendimentoMensal = transforma(rendimentoMensal)
+    rendimentoMensal = parseFloat(rendimentoMensal)
 
-alert("Juros: " + juros)
-alert("Imposto: " + imposto)
-alert("Total:" + total)*/
+    let nMeses = document.getElementById("nMeses").value
+    nMeses = parseInt(nMeses)
+    
+    let investimentoMensal = document.getElementById("valorMensal").value
+    investimentoMensal = transforma(investimentoMensal)
+    investimentoMensal = parseFloat(investimentoMensal)
+
+    let jurosTotais = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
+    let impostoTotal = imposto(jurosTotais, nMeses*30)
+    let total = valorTotal(valorInicial + (nMeses*investimentoMensal), jurosTotais, impostoTotal)
+
+    alert("Juros: " + jurosTotais)
+    alert("Imposto: " + impostoTotal)
+    alert("Total: " + total)
+}
+
