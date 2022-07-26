@@ -47,7 +47,11 @@
                     <p class="text">Período Desejado</p>
                     <div class="input-group input-group-lg mb-3">
                         <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" id = "nMeses" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        <span class="input-group-text" id="basic-addon5">Meses</span>
+                        <button class="btn btn-outline-secondary dropdown-toggle input-group-text" type="button" data-bs-toggle="dropdown" aria-expanded="false">Período</button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">Meses</a></li>
+                            <li><a class="dropdown-item" href="#">Anos</a></li>
+                        </ul>
                     </div>
                     <div style="float:left">
                         <button type="reset" class="btn btn-outline-primary btn-lg">Limpar</button>
@@ -57,26 +61,21 @@
                     </div>
                 </div>
                 <div class="output">
-                    <p class="text">Valor Inicial</p>
-                    <div class="input-group input-group-lg mb-3">
-                        <span class="input-group-text" id="basic-addon1">R$</span>
-                        <input type="text" class="form-control" placeholder="Valor Inicial" aria-label="Valor Inicial" aria-describedby="basic-addon1" onkeyup="formatarMoeda(this)">
+                    <div class="result">
+                        <p class="text titulo-result">Valor Total Investido</p>
+                        <p class="text text-result">RESULTADO</p>
                     </div>
-                    <p class="text">Valor Mensal</p>
-                    <div class="input-group input-group-lg mb-3">
-                        <span class="input-group-text" id="basic-addon2">R$</span>
-                        <input type="text" class="form-control" placeholder="Valor Mensal" aria-label="Valor Mensal" aria-describedby="basic-addon2" onkeyup="formatarMoeda(this)">
+                    <div class="result">
+                        <p class="text titulo-result">Valor Total de Juros</p>
+                        <p class="text text-result" style="color:#299d83">RESULTADO</p>
                     </div>
-                    <p class="text">Taxa de Juros Mensal</p>
-                    <div class="input-group input-group-lg mb-3">
-                        <span class="input-group-text" id="basic-addon3">%</span>
-                        <input type="text" class="form-control" placeholder="Taxa de Juros" aria-label="Taxa de Juros" aria-describedby="basic-addon3" onkeyup="formatarMoeda(this)">
-                        <span class="input-group-text" id="basic-addon4">Mensal</span>
+                    <div class="result">
+                        <p class="text titulo-result">Valor Total de Imposto de Renda</p>
+                        <p class="text text-result" style="color:#9d2951">RESULTADO</p>
                     </div>
-                    <p class="text">Período Desejado</p>
-                    <div class="input-group input-group-lg mb-3">
-                        <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        <span class="input-group-text" id="basic-addon5">Meses</span>
+                    <div class="result">
+                        <p class="text titulo-result">Valor Total Final</p>
+                        <p class="text text-result" style="color:#5274d8;text-decoration:underline">RESULTADO</p>
                     </div>
                 </div>
             </div>

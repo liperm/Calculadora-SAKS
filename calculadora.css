@@ -17,9 +17,8 @@ main {
 }
 
 .text {
-    font-size: 15px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: bold;
+    font: lighter 15px Impact, Arial, Verdana, Tahoma, sans-serif;
+    letter-spacing: 1px;
     color: #132644;
 }
 
@@ -39,6 +38,7 @@ main {
     background-color: #c7d4f7;
     padding: 30px;
     width: 70vw;
+    height: 530px;
 }
 
 .input {
@@ -49,6 +49,31 @@ main {
 .output {
     float: right;
     width: 45%;
+    height: 700px;
+}
+
+.result {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 100px;
+    width:auto;
+    background-color: #e1e9fc;
+    border: 2px solid #5274d8;
+    border-radius: 11px;
+}
+
+.titulo-result {
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.text-result {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font: bold 50px Impact, Arial, Verdana, sans-serif;
+    letter-spacing: 3px;
 }
 
 .form-control {
@@ -81,6 +106,13 @@ main {
     border-width: 2px;
     border-color: #5274d8;
     color: #5274d8;
+}
+
+.btn-outline-secondary {
+    background-color: #5274d8;
+    border:2px solid #5274d8;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #e1e9fc;
 }
 
 #titulo {
@@ -127,7 +159,7 @@ main {
         display: block;
         margin: auto;
         width: 90vw;
-        height: 700px;
+        height: 870px;
     }
 
     .input {
@@ -157,6 +189,11 @@ main {
     }
 
     .input-group-text {
+        height: 31px;
+        size: 22px;
+    }
+
+    .btn-outline-secondary {
         height: 31px;
         size: 22px;
     }
