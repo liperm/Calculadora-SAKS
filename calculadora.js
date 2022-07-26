@@ -2,14 +2,20 @@ function juros(valorInicial, rendimentoMensal, nMeses, investimentoMensal){
     let totalMesM = valorInicial
     let rendimentoMesM = 0.0
     let juros = 0.0
+    let dados = [['Tempo', 'Total Investido', 'Total com Juros']]
 
     for(let i = 0; i <= nMeses; i++){
         rendimentoMesM = totalMesM * rendimentoMensal
         juros += rendimentoMesM
         totalMesM += investimentoMensal + rendimentoMesM
+        dados.push([i, valorInicial + i * investimentoMensal, totalMesM - investimentoMensal])
     }
 
-    return juros
+    let investimento = {
+        jurosTotais : juros,
+        historico : dados}
+
+    return investimento
 }
 
 function imposto(rendimentoTotal, nDias){
@@ -52,34 +58,66 @@ function valorTotal(valorTotalInvestido, rendimentoTotal, impostoDeRenda){
     
 }
 
-function transforma(valor){
+function deMoedaParaFloat(valor){
+    valor = valor.replace("R$", "")
     valor = valor.replace(/\./g, "")
     valor = valor.replace(/\,/g,".")
-    return valor
+    return parseFloat(valor)
+}
+
+var deFloatParaMoeda = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    minimumFractionDigits: 2,
+  });
+
+function desenhaGrafico(dados) {
+    console.log(dados)
+    var data = google.visualization.arrayToDataTable(dados, false);
+
+    var options = {
+      title: 'Investimento',
+      curveType: 'function',
+      legend: { position: 'bottom' },
+      colors: ['#A1C5FF', '#5274d8']
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('grafico'));
+
+    chart.draw(data, options);
 }
 
 function calcular(){
     let valorInicial = document.getElementById("valorInicial").value
-    valorInicial = transforma(valorInicial)
-    valorInicial = parseFloat(valorInicial) 
+    valorInicial = deMoedaParaFloat(valorInicial)
 
     let rendimentoMensal = document.getElementById("rendimento").value
-    rendimentoMensal = transforma(rendimentoMensal)
-    rendimentoMensal = parseFloat(rendimentoMensal)
+    rendimentoMensal = deMoedaParaFloat(rendimentoMensal)
 
     let nMeses = document.getElementById("nMeses").value
     nMeses = parseInt(nMeses)
     
     let investimentoMensal = document.getElementById("valorMensal").value
-    investimentoMensal = transforma(investimentoMensal)
-    investimentoMensal = parseFloat(investimentoMensal)
+    investimentoMensal = deMoedaParaFloat(investimentoMensal)
 
-    let jurosTotais = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
+    let dadosInvestimento = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
+    let jurosTotais = dadosInvestimento.jurosTotais 
     let impostoTotal = imposto(jurosTotais, nMeses*30)
-    let total = valorTotal(valorInicial + (nMeses*investimentoMensal), jurosTotais, impostoTotal)
+    let totalInvestido = valorInicial + (nMeses*investimentoMensal)
+    let total = valorTotal(totalInvestido, jurosTotais, impostoTotal)
+    
+    document.getElementById("totalInvestido").textContent = deFloatParaMoeda.format(totalInvestido)
+    document.getElementById("totalJuros").textContent = deFloatParaMoeda.format(jurosTotais)
+    document.getElementById("totalImposto").textContent = deFloatParaMoeda.format(impostoTotal)
+    document.getElementById("total").textContent = deFloatParaMoeda.format(total)
 
-    alert("Juros: " + jurosTotais)
-    alert("Imposto: " + impostoTotal)
-    alert("Total: " + total)
+    for(var i = 1; i <= nMeses + 1; i++){
+        for(var j = 1; j < 3; j++){
+            dadosInvestimento.historico[i][j] = deMoedaParaFloat(deFloatParaMoeda.format(dadosInvestimento.historico[i][j]))
+        }
+    }
+
+    google.charts.load('current', {'packages':['corechart']})
+    google.charts.setOnLoadCallback(function(){desenhaGrafico(dadosInvestimento.historico)})
 }
 

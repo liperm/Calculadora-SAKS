@@ -63,25 +63,28 @@
                 <div class="output">
                     <div class="result">
                         <p class="text titulo-result">Valor Total Investido</p>
-                        <p class="text text-result">RESULTADO</p>
+                        <p class="text text-result" id = "totalInvestido">RESULTADO</p>
                     </div>
                     <div class="result">
                         <p class="text titulo-result">Valor Total de Juros</p>
-                        <p class="text text-result" style="color:#299d83">RESULTADO</p>
+                        <p class="text text-result" style="color:#299d83" id = "totalJuros">RESULTADO</p>
                     </div>
                     <div class="result">
                         <p class="text titulo-result">Valor Total de Imposto de Renda</p>
-                        <p class="text text-result" style="color:#9d2951">RESULTADO</p>
+                        <p class="text text-result" style="color:#9d2951" id = "totalImposto">RESULTADO</p>
                     </div>
                     <div class="result">
                         <p class="text titulo-result">Valor Total Final</p>
-                        <p class="text text-result" style="color:#5274d8;text-decoration:underline">RESULTADO</p>
+                        <p class="text text-result" style="color:#5274d8;text-decoration:underline" id = "total">RESULTADO</p>
                     </div>
                 </div>
             </div>
         </form>
+        <br>
+        <div id="grafico" style="width: 900px; height: 500px"></div>
     </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="calculadora.js"></script>
 </body>
 </html>
