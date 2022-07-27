@@ -1,5 +1,6 @@
-Calculadora SAKS
+<h1>Calculadora SAKS</h1>
 
+<hl>
 
 Grupo 2: Fernando Gabriel F. Pedro, Felipe Ribeiro Machado
 
