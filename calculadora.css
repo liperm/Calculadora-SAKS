@@ -131,6 +131,30 @@ main {
     
 }
 
+#graficosep {
+    height: 500px
+}
+
+#graficodiv {
+    display: block;
+    margin: auto;
+    width: 60vw;
+    height: 550px;
+    background-color: #c7d4f7;
+    border-radius: 15px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+#grafico {
+    display: block;
+    margin: auto;
+    width: 90%;
+    height: 500px;
+    background-color: #ffffff;
+    border:2px solid #5274d8;
+}
+
 @media only screen and (max-width: 500px) {
     .form-control {
         height: 31px;
@@ -197,10 +221,25 @@ main {
         height: 31px;
         size: 22px;
     }
+
+    #graficosep {
+        height: 840px;
+    }
+
+    #graficodiv {
+        display: block;
+        margin: auto;
+        width: 80vw;
+        height: 520px;
+    }
 }
 
 @media only screen and (min-width: 2200px) {
     .calculadora {
         width: 60vw;
+    }
+
+    #graficodiv {
+        width: 50vw;
     }
 }
