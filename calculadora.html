@@ -53,10 +53,10 @@
                     <p class="text">Período Desejado</p>
                     <div class="input-group input-group-lg mb-3">
                         <input type="text" class="form-control" placeholder="Período Desejado" aria-label="Período Desejado" aria-describedby="basic-addon5" id = "nMeses" onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Período</button>
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" id = "dropdown">Meses</button>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item text" href="#">Meses</a></li>
-                            <li><a class="dropdown-item text" href="#">Anos</a></li>
+                            <li><a class="dropdown-item text" href="#" onclick = "selectDropdown('Meses')">Meses</a></li>
+                            <li><a class="dropdown-item text" href="#" onclick = "selectDropdown('Anos')">Anos</a></li>
                         </ul>
                     </div>
                     <div style="float:left">

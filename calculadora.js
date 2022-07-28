@@ -87,42 +87,53 @@ function desenhaGrafico(dados) {
     chart.draw(data, options);
 }
 
+function selectDropdown(valor){
+    document.getElementById("dropdown").textContent = valor
+}
+
 function calcular(){
-    document.getElementById("graficosep").style.display = "block"
-    document.getElementById("graficodiv").style.display = "block"
-    document.getElementById("grafico").style.display = "block"
-
     let valorInicial = document.getElementById("valorInicial").value
-    valorInicial = deMoedaParaFloat(valorInicial)
-
     let rendimentoMensal = document.getElementById("rendimento").value
-    rendimentoMensal = deMoedaParaFloat(rendimentoMensal)
-
     let nMeses = document.getElementById("nMeses").value
-    nMeses = parseInt(nMeses)
-    
     let investimentoMensal = document.getElementById("valorMensal").value
-    investimentoMensal = deMoedaParaFloat(investimentoMensal)
 
-    let dadosInvestimento = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
-    let jurosTotais = dadosInvestimento.jurosTotais 
-    let impostoTotal = imposto(jurosTotais, nMeses*30)
-    let totalInvestido = valorInicial + (nMeses*investimentoMensal)
-    let total = valorTotal(totalInvestido, jurosTotais, impostoTotal)
-    
-    document.getElementById("totalInvestido").textContent = deFloatParaMoeda.format(totalInvestido)
-    document.getElementById("totalJuros").textContent = deFloatParaMoeda.format(jurosTotais)
-    document.getElementById("totalImposto").textContent = deFloatParaMoeda.format(impostoTotal)
-    document.getElementById("total").textContent = deFloatParaMoeda.format(total)
+    if(valorInicial.length > 0 && rendimentoMensal.length > 0 && (nMeses.length > 0 && parseInt(nMeses) > 0) && investimentoMensal.length > 0){
+        document.getElementById("graficosep").style.display = "block"
+        document.getElementById("graficodiv").style.display = "block"
+        document.getElementById("grafico").style.display = "block"
 
-    for(var i = 1; i <= nMeses + 1; i++){
-        for(var j = 1; j < 3; j++){
-            dadosInvestimento.historico[i][j] = deMoedaParaFloat(deFloatParaMoeda.format(dadosInvestimento.historico[i][j]))
+        valorInicial = deMoedaParaFloat(valorInicial)
+        rendimentoMensal = deMoedaParaFloat(rendimentoMensal)
+        nMeses = parseInt(nMeses)
+        investimentoMensal = deMoedaParaFloat(investimentoMensal)
+
+        if(document.getElementById("dropdown").textContent === "Anos"){
+            nMeses = nMeses * 12
         }
-    }
+        
+        let dadosInvestimento = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
+        let jurosTotais = dadosInvestimento.jurosTotais 
+        let impostoTotal = imposto(jurosTotais, nMeses*30)
+        let totalInvestido = valorInicial + (nMeses*investimentoMensal)
+        let total = valorTotal(totalInvestido, jurosTotais, impostoTotal)
+        
+        document.getElementById("totalInvestido").textContent = deFloatParaMoeda.format(totalInvestido)
+        document.getElementById("totalJuros").textContent = deFloatParaMoeda.format(jurosTotais)
+        document.getElementById("totalImposto").textContent = deFloatParaMoeda.format(impostoTotal)
+        document.getElementById("total").textContent = deFloatParaMoeda.format(total)
 
-    google.charts.load('current', {'packages':['corechart']})
-    google.charts.setOnLoadCallback(function(){desenhaGrafico(dadosInvestimento.historico)})
+        for(var i = 1; i <= nMeses + 1; i++){
+            for(var j = 1; j < 3; j++){
+                dadosInvestimento.historico[i][j] = deMoedaParaFloat(deFloatParaMoeda.format(dadosInvestimento.historico[i][j]))
+            }
+        }
+
+        google.charts.load('current', {'packages':['corechart']})
+        google.charts.setOnLoadCallback(function(){desenhaGrafico(dadosInvestimento.historico)})
+    }
+    else{
+        limpar()
+    }
 }
 
 function limpar() {
