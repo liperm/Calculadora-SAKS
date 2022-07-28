@@ -76,7 +76,7 @@ function desenhaGrafico(dados) {
     var data = google.visualization.arrayToDataTable(dados, false);
 
     var options = {
-      title: 'Investimento',
+      title: 'Rendimento ao longo dos meses',
       curveType: 'function',
       legend: { position: 'bottom' },
       colors: ['#A1C5FF', '#5274d8']
@@ -110,7 +110,7 @@ function calcular(){
         if(document.getElementById("dropdown").textContent === "Anos"){
             nMeses = nMeses * 12
         }
-        
+
         let dadosInvestimento = juros(valorInicial, rendimentoMensal/100, nMeses, investimentoMensal)
         let jurosTotais = dadosInvestimento.jurosTotais 
         let impostoTotal = imposto(jurosTotais, nMeses*30)

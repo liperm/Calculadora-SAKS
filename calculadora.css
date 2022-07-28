@@ -259,3 +259,14 @@ main {
         width: 50vw;
     }
 }
+
+.dropdown-toggle:hover{
+    background-color: #356bd8;
+    border-color: #356bd8;
+}
+
+.dropdown-toggle:focus{
+    background-color: #356bd8;
+    border-color: #356bd8;
+}
+
