@@ -88,6 +88,10 @@ function desenhaGrafico(dados) {
 }
 
 function calcular(){
+    document.getElementById("graficosep").style.display = "block"
+    document.getElementById("graficodiv").style.display = "block"
+    document.getElementById("grafico").style.display = "block"
+
     let valorInicial = document.getElementById("valorInicial").value
     valorInicial = deMoedaParaFloat(valorInicial)
 
@@ -121,3 +125,23 @@ function calcular(){
     google.charts.setOnLoadCallback(function(){desenhaGrafico(dadosInvestimento.historico)})
 }
 
+function limpar() {
+    document.getElementById("totalInvestido").textContent = "R$ 0,00"
+    document.getElementById("totalJuros").textContent = "R$ 0,00"
+    document.getElementById("totalImposto").textContent = "R$ 0,00"
+    document.getElementById("total").textContent = "R$ 0,00"
+
+    document.getElementById("graficosep").style.display = "none"
+    document.getElementById("graficodiv").style.display = "none"
+    document.getElementById("grafico").style.display = "none"
+}
+
+document.addEventListener("keypress", function(event) {
+    if (event.key == "Enter") {
+        calcular();
+    }
+  });
+
+$(window).resize(function(){
+    calcular();
+  });

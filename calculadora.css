@@ -99,6 +99,7 @@ main {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-color: #5274d8;
     border-color: #5274d8;
+    color: #e1e9fc;
 }
 
 .btn-outline-primary {
@@ -113,6 +114,15 @@ main {
     border:2px solid #5274d8;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: #e1e9fc;
+}
+
+.dropdown-menu {
+    border:2px solid #5274d8;
+}
+
+.dropdown-item {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 550;
 }
 
 #titulo {
@@ -132,11 +142,12 @@ main {
 }
 
 #graficosep {
+    display: none;
     height: 500px
 }
 
 #graficodiv {
-    display: block;
+    display: none;
     margin: auto;
     width: 60vw;
     height: 550px;
@@ -147,7 +158,7 @@ main {
 }
 
 #grafico {
-    display: block;
+    display: none;
     margin: auto;
     width: 90%;
     height: 500px;
@@ -212,6 +223,12 @@ main {
         size: 22px;
     }
 
+    .dropdown-toggle {
+        height: 31px;
+        size: 22px;
+        padding: 0px;
+    }
+
     .input-group-text {
         height: 31px;
         size: 22px;
@@ -227,7 +244,6 @@ main {
     }
 
     #graficodiv {
-        display: block;
         margin: auto;
         width: 80vw;
         height: 520px;
