@@ -122,6 +122,38 @@ function calcular(){
         document.getElementById("totalImposto").textContent = deFloatParaMoeda.format(impostoTotal)
         document.getElementById("total").textContent = deFloatParaMoeda.format(total)
 
+        if(document.getElementById("totalInvestido").textContent.length > 20) {
+            document.getElementById("totalInvestido").classList.remove("text-result")
+            document.getElementById("totalInvestido").classList.add("text-result-mini")
+        } else {
+            document.getElementById("totalInvestido").classList.add("text-result")
+            document.getElementById("totalInvestido").classList.remove("text-result-mini")
+        }
+
+        if(document.getElementById("totalJuros").textContent.length > 20) {
+            document.getElementById("totalJuros").classList.remove("text-result")
+            document.getElementById("totalJuros").classList.add("text-result-mini")
+        } else {
+            document.getElementById("totalJuros").classList.add("text-result")
+            document.getElementById("totalJuros").classList.remove("text-result-mini")
+        }
+
+        if(document.getElementById("totalImposto").textContent.length > 20) {
+            document.getElementById("totalImposto").classList.remove("text-result")
+            document.getElementById("totalImposto").classList.add("text-result-mini")
+        } else {
+            document.getElementById("totalImposto").classList.add("text-result")
+            document.getElementById("totalImposto").classList.remove("text-result-mini")
+        }
+
+        if(document.getElementById("total").textContent.length > 20) {
+            document.getElementById("total").classList.remove("text-result")
+            document.getElementById("total").classList.add("text-result-mini")
+        } else {
+            document.getElementById("total").classList.add("text-result")
+            document.getElementById("total").classList.remove("text-result-mini")
+        }
+
         for(var i = 1; i <= nMeses + 1; i++){
             for(var j = 1; j < 3; j++){
                 dadosInvestimento.historico[i][j] = deMoedaParaFloat(deFloatParaMoeda.format(dadosInvestimento.historico[i][j]))

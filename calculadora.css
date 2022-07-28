@@ -76,6 +76,14 @@ main {
     letter-spacing: 3px;
 }
 
+.text-result-mini {
+    display: block;
+    margin: auto;
+    text-align: center;
+    font: bold 35px Impact, Arial, Verdana, sans-serif;
+    letter-spacing: 2px;
+}
+
 .form-control {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-style: italic;
